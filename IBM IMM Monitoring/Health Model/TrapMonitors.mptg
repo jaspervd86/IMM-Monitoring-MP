@@ -1,0 +1,628 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance1cb8bbbf42bb4bd8ba0ce5a2d4aaa2da" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.50&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>OtherHardware.Monitor</Id>
+        <DisplayName>IBM Other Hardware Monitor</DisplayName>
+        <Description>IBM Other Hardware Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Other Hardware Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a hardware failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance29a62a1fe06045bdbef97f1de62938e5" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.164&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>PowerWarning.Monitor</Id>
+        <DisplayName>Warning Power Monitor</DisplayName>
+        <Description>Warning Power Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Warning</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Warning Power Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a power failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance854ad82349bb4dd2a69039a39e1929c1" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.165&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>FanWarning.Monitor</Id>
+        <DisplayName>Warning  Fan Monitor</DisplayName>
+        <Description>Warning Fan Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Warning</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Warning Fan Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a fan failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceb6a7b8de8cb4461fb323b1f274b53e8b" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.43&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>MemoryWarning.Monitor</Id>
+        <DisplayName>Warning Memory Monitor</DisplayName>
+        <Description>Warning Memory Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Warning</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Warning Memory Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a memory failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance8e5f1938f7784055bd497649daff9ab2" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.42&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>CPUWarning.Monitor</Id>
+        <DisplayName>Warning CPU Monitor</DisplayName>
+        <Description>Warning CPU Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Warning</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Warning CPU Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a warning CPU error.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instancea33695746ce24d26ab9f19db1c0551f1" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.12&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>TemperatureWarning.Monitor</Id>
+        <DisplayName>Warning  Temperature Monitor</DisplayName>
+        <Description>Warning Temperature Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Warning</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Warning Temperature Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a warning temperature failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceaacfd37568144608bc555010af218514" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.27&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>PredictiveFailure.Monitor</Id>
+        <DisplayName>Predictive Failure Trap Monitor</DisplayName>
+        <Description>Predictive Failure Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Warning</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>Predictive Failure Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a predictive failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instanced50e2e2f7e7b477e996bd236b30eb2c0" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.25&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>SystemBoot.Monitor</Id>
+        <DisplayName>System Boot Monitor</DisplayName>
+        <Description>System Boot Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM System Boot Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a system boot failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance7a15e848f8a141d39dc281999a711bd3" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.1&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>VoltageCritical.Monitor</Id>
+        <DisplayName>Critical Voltage Monitor</DisplayName>
+        <Description>Critical Voltage Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Critical Voltage Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a critical voltage failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instancefe34875e7b454693a1fc7771d315cd1d" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.0&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>TemperatureCritical.Monitor</Id>
+        <DisplayName>Critical Temperature Monitor</DisplayName>
+        <Description>Critical Temperature Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Critical Temperature Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a critical temperature failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instancee9faca40160743b59b5a5981b134a84c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.5&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>HardDiskCritical.Monitor</Id>
+        <DisplayName>Critical Hard Disk Monitor</DisplayName>
+        <Description>Critical Hard Disk Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Critical Harddisk Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a critical hard disk drive failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance7bfcaedb97f14ecf83a05c57a309d6a8" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.41&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>MemoryCritical.Monitor</Id>
+        <DisplayName>Critical Memory Monitor</DisplayName>
+        <Description>Critical Memory Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Critical Memory Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a memory failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instancefa6b7db9b28d4f689c7644150ef92421" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.40&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>CPUCritical.Monitor</Id>
+        <DisplayName>Critical CPU Monitor</DisplayName>
+        <Description>Critical CPU Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Critical CPU Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a critical CPU failure. 
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance7b19f907ad944544aae3a2c5f744f231" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.11&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>FanCritical.Monitor</Id>
+        <DisplayName>Critical Fan Monitor</DisplayName>
+        <Description>Critical Fan Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Critical Fan Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a fan failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance5aa521a28daf49f1a3a28abc0272e8f5" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.13&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>VoltageWarning.Monitor</Id>
+        <DisplayName>Warning Voltage Monitor</DisplayName>
+        <Description>Warning Voltage Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Warning</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Warning Voltage Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a warning voltage failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instancef05c2739b52e4c308bf00735f248a965" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>NetworkLibrary!System.NetworkManagement.SnmpTrapProvider.SingleEventManualReset2StateMonitorType</MonitorType>
+        <MonitorConfig>&lt;IP&gt;$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$&lt;/IP&gt;&lt;Version&gt;&lt;/Version&gt;&lt;OIDProps&gt;&lt;OIDProp&gt;.1.3.6.1.4.1.2.6.158.5.0.4&lt;/OIDProp&gt;&lt;/OIDProps&gt;&lt;Expression&gt;&lt;SimpleExpression&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;Operator&gt;Equal&lt;/Operator&gt;&lt;ValueExpression&gt;&lt;Value Type="Integer"&gt;0&lt;/Value&gt;&lt;/ValueExpression&gt;&lt;/SimpleExpression&gt;&lt;/Expression&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>EventRaised</OperationalStateId>
+            <OperationalStateDisplayName>EventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>EventRaised</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>ManualResetEventRaised</OperationalStateId>
+            <OperationalStateDisplayName>ManualResetEventRaised</OperationalStateDisplayName>
+            <MonitorTypeStateId>ManualResetEventRaised</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>PowerCritical.Monitor</Id>
+        <DisplayName>Critical Power Monitor</DisplayName>
+        <Description>Critical Power Trap Monitor for IBM IMM</Description>
+        <Target>IBM.IMMNode</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>Error</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <AlertName>IBM Critical Power Issue</AlertName>
+        <AlertDescription>Device $Target/Property[Type="System!System.Entity"]/DisplayName$ sent a trap concerning a power failure.
+The error message is: $Data/Context/SnmpVarBinds/SnmpVarBind[10]/Value$
+Verify on the webinterface (IP:$Target/Property[Type="NetworkLibrary!System.NetworkManagement.Node"]/SNMPAddress$) if the problem is current and reset the monitor in SCOM after the error has been resolved</AlertDescription>
+        <ConfirmDelivery>false</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

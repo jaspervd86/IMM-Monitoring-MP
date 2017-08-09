@@ -1,0 +1,135 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <ModuleTypes>
+      <!-- These Probes are created for reuse by other modules.  Careful before changing any of them!-->
+
+      <!-- Shared Walk Discovery Module -->
+      <ProbeActionModuleType ID="IBM.IMM.SNMP.Walk.Probe" Accessibility="Public" Batching="false">
+        <Configuration>
+          <IncludeSchemaTypes>
+            <SchemaType>SNMP!System.SnmpVarBindsSchema</SchemaType>
+          </IncludeSchemaTypes>
+          <xsd:element name="StartOIDVarBind"  type="SnmpVarBindsType" minOccurs="1" />
+          <xsd:element name="Port" type="xsd:unsignedInt" minOccurs="1"/>
+          <xsd:element name="IP" type="xsd:string" minOccurs="1" />
+          <xsd:element name="Version" type="xsd:string" minOccurs="1" />
+          <xsd:element name="TimeOutInMs" type="xsd:int" minOccurs="0" />
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="TimeOutInMs" ParameterType="int" Selector="$Config/TimeOutInMs$" />
+        </OverrideableParameters>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              <ProbeAction ID="Walk" TypeID="NetworkLibrary!System.NetworkManagement.SnmpProbe">
+                <Walk>true</Walk>
+                <WalkReturnMultipleItems>true</WalkReturnMultipleItems>
+                <NoOfRetries>3</NoOfRetries>
+                <Timeout>$Config/TimeOutInMs$</Timeout>
+                <Port>$Config/Port$</Port>
+                <SNMPv3UserName>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/UserName$</SNMPv3UserName>
+                <SNMPv3AuthProtocol>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/AuthenticationProtocol$</SNMPv3AuthProtocol>
+                <SNMPv3AuthPassword>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/AuthenticationKey$</SNMPv3AuthPassword>
+                <SNMPv3PrivProtocol>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/PrivacyProtocol$</SNMPv3PrivProtocol>
+                <SNMPv3PrivPassword>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/PrivacyKey$</SNMPv3PrivPassword>
+                <SNMPv3ContextName>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/ContextName$</SNMPv3ContextName>
+                <IsWriteAction>false</IsWriteAction>
+                <IP>$Config/IP$</IP>
+                <CommunityString>$RunAs[Name="NetworkLibrary!System.NetworkManagement.Snmp.MonitoringAccount"]/CommunityString$</CommunityString>
+                <Version>$Config/Version$</Version>
+                <SnmpVarBinds>$Config/StartOIDVarBind$</SnmpVarBinds>
+                <OutputOnError>true</OutputOnError>
+              </ProbeAction>
+            </MemberModules>
+            <Composition>
+              <Node ID="Walk"/>
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>SNMP!System.SnmpData</OutputType>
+        <InputType>System!System.BaseData</InputType>
+      </ProbeActionModuleType>
+
+      <!-- Get Device ID from Key, using PowerShell and regex -->
+      <ProbeActionModuleType ID="IBM.IMM.PowerShell.GetIdFromKey.Probe" Accessibility="Public" Batching="false">
+        <Configuration>
+          <xsd:element name="StartOID" type="xsd:string" minOccurs="1"/>
+        </Configuration>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              <ProbeAction ID="PowerShell" TypeID="Windows!Microsoft.Windows.PowerShellPropertyBagProbe">
+                <ScriptName>GetIndexFromSNMPDeviceKey.ps1</ScriptName>
+                <ScriptBody>$IncludeFileContent/Composition/GetIndexFromSNMPDeviceKey.ps1$</ScriptBody>
+                <Parameters>
+                  <Parameter>
+                    <Name>StartOID</Name>
+                    <Value>$Config/StartOID$</Value>
+                  </Parameter>
+                  <Parameter>
+                    <Name>LogicalDeviceKey</Name>
+                    <Value>$Target/Property[Type="NetworkLibrary!System.NetworkManagement.LogicalDevice"]/Key$</Value>
+                  </Parameter>
+                </Parameters>
+                <TimeoutSeconds>30</TimeoutSeconds>
+              </ProbeAction>
+            </MemberModules>
+            <Composition>
+              <Node ID="PowerShell" />
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.PropertyBagData</OutputType>
+        <InputType>System!System.BaseData</InputType>
+      </ProbeActionModuleType>
+
+      <!-- Get Detail, return no error when not found-->
+      <ProbeActionModuleType ID="IBM.IMM.SNMP.GetDetail.Probe" Accessibility="Public" Batching="false">
+        <Configuration>
+          <IncludeSchemaTypes>
+            <SchemaType>SNMP!System.SnmpVarBindsSchema</SchemaType>
+          </IncludeSchemaTypes>
+          <xsd:element name="OIDVarBinds" type="SnmpVarBindsType" minOccurs="1" />
+          <xsd:element name="Port" type="xsd:unsignedInt" minOccurs="1" />
+          <xsd:element name="IP" type="xsd:string" minOccurs="1" />
+          <xsd:element name="Version" type="xsd:string" minOccurs="1" />
+          <xsd:element name="OutputOnError" type="xsd:boolean" minOccurs="1" />
+          <xsd:element name="TimeOutInMs" type="xsd:int" minOccurs="0" />
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="TimeOutInMs" ParameterType="int" Selector="$Config/TimeOutInMs$"/>
+        </OverrideableParameters>
+        <ModuleImplementation>
+          <Composite>
+            <MemberModules>
+              <ProbeAction ID="SnmpProbe" TypeID="NetworkLibrary!System.NetworkManagement.SnmpProbe">
+                <Walk>false</Walk>
+                <WalkReturnMultipleItems>false</WalkReturnMultipleItems>
+                <NoOfRetries>3</NoOfRetries>
+                <Timeout>$Config/TimeOutInMs$</Timeout>
+                <Port>$Config/Port$</Port>
+                <SNMPv3UserName>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/UserName$</SNMPv3UserName>
+                <SNMPv3AuthProtocol>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/AuthenticationProtocol$</SNMPv3AuthProtocol>
+                <SNMPv3AuthPassword>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/AuthenticationKey$</SNMPv3AuthPassword>
+                <SNMPv3PrivProtocol>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/PrivacyProtocol$</SNMPv3PrivProtocol>
+                <SNMPv3PrivPassword>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/PrivacyKey$</SNMPv3PrivPassword>
+                <SNMPv3ContextName>$RunAs[Name="NetworkLibrary!System.NetworkManagement.SnmpV3.MonitoringAccount"]/ContextName$</SNMPv3ContextName>
+                <IsWriteAction>false</IsWriteAction>
+                <IP>$Config/IP$</IP>
+                <CommunityString>$RunAs[Name="NetworkLibrary!System.NetworkManagement.Snmp.MonitoringAccount"]/CommunityString$</CommunityString>
+                <Version>$Config/Version$</Version>
+                <SnmpVarBinds>$Config/OIDVarBinds$</SnmpVarBinds>
+                <OutputOnError>$Config/OutputOnError$</OutputOnError>
+              </ProbeAction>
+            </MemberModules>
+            <Composition>
+              <Node ID="SnmpProbe" />
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>SNMP!System.SnmpData</OutputType>
+        <InputType>System!System.BaseData</InputType>
+      </ProbeActionModuleType>
+    </ModuleTypes>
+  </TypeDefinitions>
+</ManagementPackFragment>
